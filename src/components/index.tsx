@@ -107,8 +107,10 @@ class Main extends ExtendedElement {
 					!(
 						e.materials.length === 1 &&
 						(Array.isArray(e.materials[0])
-							? e.materials[0][1] === e.quantity
-							: e.materials[0].quantity === e.quantity)
+							? e.materials[0][1] === e.quantity ||
+							  e.materials[0][1] === 0
+							: e.materials[0].quantity === e.quantity ||
+							  e.materials[0].quantity === 0)
 					)
 				}>
 				<summary>
@@ -119,11 +121,23 @@ class Main extends ExtendedElement {
 					)} to craft`}
 				</summary>
 				{e.sparesUsed
-					? Object.entries(e.sparesUsed).map(([n, q]) => (
-							<span>
-								Used {q} spare {n}
-							</span>
-					  ))
+					? await Promise.all(
+							Object.entries(e.sparesUsed).map(
+								async ([n, q]) => {
+									const material =
+										await DataProvider.getMaterial(n);
+									const image = material
+										? getMaterialImage(material)
+										: null;
+									return (
+										<span>
+											Used {q} spare {image}
+											{n}
+										</span>
+									);
+								},
+							),
+					  )
 					: null}
 				{await Promise.all(
 					e.materials.map((e) => this.renderMaterialCost(e)),

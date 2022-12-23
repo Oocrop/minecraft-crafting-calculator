@@ -54,9 +54,12 @@ export class CraftingCalculator {
 		});
 		Object.keys(materials).forEach((name) => {
 			if (this.materials[name]?.spares > 0) {
-				materials[name] -= this.materials[name].spares;
-				sparesUsed[name] = this.materials[name].spares;
-				this.materials[name].spares = 0;
+				sparesUsed[name] = Math.min(
+					this.materials[name].spares,
+					materials[name],
+				);
+				materials[name] -= sparesUsed[name];
+				this.materials[name].spares -= sparesUsed[name];
 			}
 		});
 		let craftingTime = (recipe.craftingTime || 1) * materialsQuantity;
