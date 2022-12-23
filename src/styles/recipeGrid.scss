@@ -1,0 +1,21 @@
+mc-recipe-grid {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	width: 400px;
+	height: 250px;
+	> :first-child {
+		display: flex;
+	}
+	> input.time {
+		bottom: 0;
+		width: 100px;
+	}
+	> .time {
+		position: absolute;
+		right: 0;
+		bottom: 100px;
+	}
+}

@@ -1,0 +1,44 @@
+@import "./bordercorners.scss";
+
+mc-inv-slot {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background-color: #888888;
+	color: #ffffff;
+	font-size: 20px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
+	@include border-corners(#373737, #fff, #8b8b8b, 2px);
+
+	> .content {
+		overflow: hidden;
+		> .stack {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			font-size: 16px;
+		}
+		img {
+			width: 32px;
+			height: 32px;
+		}
+	}
+
+	&.unclickable {
+		cursor: initial;
+	}
+
+	&.large {
+		padding: 8px;
+	}
+	&:hover {
+		background-color: hsl(141, 81.67938931297711%, 25.68627450980392%);
+	}
+	&.selected {
+		background-color: hsl(141, 81.67938931297711%, 20%);
+	}
+}

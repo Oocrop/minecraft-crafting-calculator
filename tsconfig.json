@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"allowJs": false,
+		"jsx": "react",
+		"jsxFactory": "createElement",
+		"outDir": "./dist/",
+		"experimentalDecorators": true,
+		"strict": true
+	},
+	"include": ["src/**/*.ts", "src/**/*.tsx"]
+}

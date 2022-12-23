@@ -1,0 +1,30 @@
+mc-material-selector {
+	z-index: 100000;
+	position: fixed;
+
+	.material-list-container {
+		display: none;
+
+		flex-direction: column;
+
+		min-width: 300px;
+		min-height: 32px;
+
+		padding: 4px;
+		gap: 5px;
+
+		background-color: #c6c6c6;
+
+		box-shadow: 0px 0px 20px #000;
+
+		&.visible {
+			display: flex;
+		}
+		.material-list {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			max-width: 50vw;
+		}
+	}
+}

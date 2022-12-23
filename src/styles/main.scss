@@ -1,0 +1,119 @@
+@import "./bordercorners.scss";
+@font-face {
+	src: url("../assets/minecraft.ttf");
+	font-family: "Minecraft";
+}
+
+body {
+	background-color: #c6c6c6;
+	font-family: "Minecraft";
+}
+
+mc-main {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	> .recipe-cost {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+	> .materials-viewer {
+		> mc-material-selector {
+			z-index: 0;
+			position: relative;
+			> .material-list-container {
+				width: 50vw;
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+input {
+	max-height: 40px;
+	padding: 10px 5px;
+	border: solid 2px #a0a0a0;
+	outline: none !important;
+	background-color: #000;
+	color: white;
+	font-size: 16px;
+	font-family: "Minecraft";
+	&:disabled {
+		color: #ffffffe0;
+		cursor: not-allowed;
+	}
+	&:focus {
+		border: solid 2px white;
+	}
+	&::placeholder {
+		color: #808080;
+		font-size: 16px;
+		font-family: "Minecraft";
+		text-shadow: 3px 2px 0px #202020;
+	}
+}
+
+button {
+	box-sizing: border-box;
+	margin: 2px;
+	padding: 10px;
+	outline: 2px solid black;
+	background-color: #c6c6c6;
+	color: #4c4c4c;
+	font-size: 16px;
+	font-family: "Minecraft";
+	@include border-corners(#f7f7f7, #656465, #c0c0c0, 4px);
+
+	&:hover {
+		outline: 2px solid white;
+		background-color: #218306;
+		color: white;
+		@include border-corners(#17cd07, #004e00, #218306, 4px);
+	}
+}
+
+details.material-cost {
+	position: relative;
+	-webkit-user-select: none;
+	user-select: none;
+
+	> :is(summary, span) {
+		display: flex;
+		gap: 5px;
+	}
+	> :not(summary) {
+		position: relative;
+		margin-left: 2rem;
+		&::after {
+			position: absolute;
+			top: 50%;
+			left: -1.1rem;
+			width: 10px;
+			border-bottom: 1px solid #333;
+			content: "";
+		}
+	}
+
+	&::before {
+		position: absolute;
+		top: 1.2rem;
+		left: 0.8rem;
+		height: 100%;
+		height: calc(100% - 1.75rem);
+		border-left: 1px solid #333;
+		content: "";
+	}
+
+	> summary::before {
+		content: "";
+		font-weight: 900;
+		font-size: 16px;
+		font-family: "Segoe Fluent Icons";
+		transition: transform 0.2s;
+	}
+
+	&[open] > summary::before {
+		transform: rotate(90deg);
+	}
+}

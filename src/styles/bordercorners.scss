@@ -1,0 +1,29 @@
+@mixin border-corners(
+	$border-top-left-color,
+	$border-bottom-right-color,
+	$border-corners-colors,
+	$border-width
+) {
+	position: relative;
+	border: solid $border-width;
+	border-color: $border-top-left-color $border-bottom-right-color
+		$border-bottom-right-color $border-top-left-color;
+	&::after {
+		position: absolute;
+		top: -$border-width;
+		right: -$border-width;
+		width: $border-width;
+		height: $border-width;
+		background-color: $border-corners-colors;
+		content: "";
+	}
+	&::before {
+		position: absolute;
+		bottom: -$border-width;
+		left: -$border-width;
+		width: $border-width;
+		height: $border-width;
+		background-color: $border-corners-colors;
+		content: "";
+	}
+}

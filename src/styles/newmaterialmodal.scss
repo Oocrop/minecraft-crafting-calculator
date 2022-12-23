@@ -1,0 +1,24 @@
+mc-new-material-modal {
+	> .modal-content {
+		padding: 25px;
+		> .wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 5px;
+			> .image-selection {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 12px;
+			}
+		}
+		> .buttons-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: end;
+
+			padding: 10px;
+		}
+	}
+}

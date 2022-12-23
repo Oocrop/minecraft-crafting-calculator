@@ -1,0 +1,25 @@
+.modal {
+	display: flex;
+	z-index: 10000;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	align-items: center;
+	justify-content: center;
+	transform: translate(-50%, -50%);
+
+	&::before {
+		position: fixed;
+		width: 200vw;
+		height: 200vh;
+		background: hsla(0deg, 0%, 0%, 0.3);
+		content: "";
+	}
+	> .modal-content {
+		position: absolute;
+		min-width: 300px;
+		min-height: 200px;
+		border-color: #373737 #fff #fff #373737;
+		background: #c6c6c6;
+	}
+}
