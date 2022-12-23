@@ -18,6 +18,7 @@
 		"eslint": "^8.30.0",
 		"html-webpack-plugin": "^5.5.0",
 		"mini-css-extract-plugin": "^2.6.1",
+		"sass": "^1.57.1",
 		"sass-loader": "^13.0.2",
 		"swc-loader": "^0.2.3",
 		"swc-webpack-minifier": "^0.0.1",
