@@ -101,7 +101,16 @@ class Main extends ExtendedElement {
 		if (image) Object.assign(image, { height: 20, width: 20 });
 		/* eslint-disable no-mixed-spaces-and-tabs */
 		return (
-			<details classList="material-cost" open>
+			<details
+				classList="material-cost"
+				open={
+					!(
+						e.materials.length === 1 &&
+						(Array.isArray(e.materials[0])
+							? e.materials[0][1] === e.quantity
+							: e.materials[0].quantity === e.quantity)
+					)
+				}>
 				<summary>
 					{image}
 					{material?.name}
